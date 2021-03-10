@@ -2,6 +2,7 @@ class Pokemon
   
   attr_accessor :id, :name, :type, :db
   
+<<<<<<< HEAD
   def initialize(keywords)
     # @id = id
     # @name = name
@@ -57,4 +58,23 @@ class Pokemon
   #   pokemon = db.execute(sql, [id]).flatten
   #   Pokemon.new(id, pokemon[1], pokemon[2], db )
   # end
+=======
+  def initialize(id:, name:, type:, db:)
+    @id = id
+    @name = name
+    @type = type
+    @db = db
+  end
+  
+  # def self.save
+  #   sql = INSERT INTO pokemons (name, type) VALUES (?, ?)
+    
+  #   @db.execute(sql, self.name, self.type)
+  #   @id = @db.execute("SELECT last_inserted_rowid() FROM pokemons)[0][0]
+  # end
+  
+    def self.save(name, type, db)
+    db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)",name, type)
+  end
+>>>>>>> 8b8d78753362cc5d7bf858a42001c7efbc06da38
 end
